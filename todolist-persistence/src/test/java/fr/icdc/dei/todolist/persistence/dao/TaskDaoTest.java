@@ -1,13 +1,11 @@
 package fr.icdc.dei.todolist.persistence.dao;
 
-import static org.junit.Assert.*;
-
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import java.util.Date;
-
 import org.apache.commons.collections.CollectionUtils;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import fr.icdc.dei.todolist.persistence.entity.Task;
 
 public class TaskDaoTest extends AbstractDaoTest {
@@ -41,12 +39,12 @@ public class TaskDaoTest extends AbstractDaoTest {
 	}
 	
 	@Test
-	public void testListTasksHasEndingDateInIntervale(){
+	public void testListTasksHaveEndingDateBetweenDates(){
 		assertTrue(CollectionUtils.isNotEmpty(taskDao.findAllByEndingDateBetween(beginDateRange,endDateRange)));
 	}
 	
 	@Test
-	public void testListTasksNotEndedDuringIntervale(){
+	public void testListTasksNotEndedAndHaveEndingDateBetweenDates(){
 		assertTrue(CollectionUtils.isNotEmpty(taskDao.findAllByIsEndedFalseAndEndingDateBetween(beginDateRange,endDateRange)));
 	}
 	

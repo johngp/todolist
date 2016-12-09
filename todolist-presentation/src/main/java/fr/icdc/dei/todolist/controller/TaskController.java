@@ -34,7 +34,7 @@ public class TaskController {
 		ModelAndView page = new ModelAndView("TasksNotEndedInDateRange");
 		Date from= dateFormater.parse(fromStr);
 		Date to = dateFormater.parse(toStr);
-		page.addObject("tasks", taskService.findAllTaskNotEndedAndEndingDateBetween(from, to));
+		page.addObject("tasks", taskService.findAllTaskNotEndedWithEndingDateBetweenDates(from, to));
 		page.addObject("from", fromStr);
 		page.addObject("to", toStr);
 		return page;
@@ -45,7 +45,7 @@ public class TaskController {
 		SimpleDateFormat dateFormater = new SimpleDateFormat ("MM/dd/yyyy");
 		Date from= dateFormater.parse(fromStr);
 		Date to = dateFormater.parse(toStr);
-		taskService.endAllTasksWhichHaveEndingDateBetweenDates(from, to);
+		taskService.endAllTasksWithEndingDateBetweenDates(from, to);
 		return new RedirectView("/todolist-presentation/tasks");
 	}
 	

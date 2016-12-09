@@ -11,14 +11,14 @@ public interface TaskService {
 
 	Task add(Task task);
 
-	List<Task>  findAllTaskWithEndingDateBetween(Date begindaterange, Date enddaterange);
+	List<Task>  findAllTaskWithEndingDateBetweenDates(Date begindaterange, Date enddaterange);
 
-	List<Task>  findAllTaskNotEndedAndEndingDateBetween(Date begindaterange, Date enddaterange);
+	List<Task>  findAllTaskNotEndedWithEndingDateBetweenDates(Date begindaterange, Date enddaterange);
 
 	boolean endTask(Task task);
 	
 	boolean endTasks(List<Task> tasks);
 
-	boolean endAllTasksWhichHaveEndingDateBetweenDates(Date begindaterange, Date enddaterange);
+	boolean endAllTasksWithEndingDateBetweenDates(Date begindaterange, Date enddaterange);
 	
 }

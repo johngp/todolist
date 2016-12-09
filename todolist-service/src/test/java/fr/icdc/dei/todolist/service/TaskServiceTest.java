@@ -51,12 +51,12 @@ public class TaskServiceTest extends AbstractServiceTest {
 	}
 	@Test
 	public void testListAllTasksWhichHaveEndingDateBetweenDates() {
-		assertTrue(CollectionUtils.isNotEmpty(taskService.findAllTaskWithEndingDateBetween(beginDateRange,endDateRange)));
+		assertTrue(CollectionUtils.isNotEmpty(taskService.findAllTaskWithEndingDateBetweenDates(beginDateRange,endDateRange)));
 	}
 	
 	@Test
-	public void testListAllTasksNotEndedAndHaveEndingDateBetweenDate() {
-		assertTrue(CollectionUtils.isNotEmpty(taskService.findAllTaskNotEndedAndEndingDateBetween(beginDateRange,endDateRange)));
+	public void testListAllTasksNotEndedAndHaveEndingDateBetweenDates() {
+		assertTrue(CollectionUtils.isNotEmpty(taskService.findAllTaskNotEndedWithEndingDateBetweenDates(beginDateRange,endDateRange)));
 	}
 	
 	@Test
@@ -71,6 +71,6 @@ public class TaskServiceTest extends AbstractServiceTest {
 	
 	@Test
 	public void testCanEndTasksWhichHaveEndingDateBetweenDates(){
-		assertEquals(true, taskService.endAllTasksWhichHaveEndingDateBetweenDates(beginDateRange, endDateRange));
+		assertEquals(true, taskService.endAllTasksWithEndingDateBetweenDates(beginDateRange, endDateRange));
 	}
 }

@@ -29,12 +29,12 @@ public class TaskServiceImpl implements TaskService {
 	}
 
 	@Override
-	public List<Task> findAllTaskWithEndingDateBetween(Date begindaterange, Date enddaterange) {
+	public List<Task> findAllTaskWithEndingDateBetweenDates(Date begindaterange, Date enddaterange) {
 		return taskDao.findAllByEndingDateBetween(begindaterange, enddaterange);				
 	}
 
 	@Override
-	public List<Task> findAllTaskNotEndedAndEndingDateBetween(Date begindaterange, Date enddaterange) {
+	public List<Task> findAllTaskNotEndedWithEndingDateBetweenDates(Date begindaterange, Date enddaterange) {
 		return taskDao.findAllByIsEndedFalseAndEndingDateBetween(begindaterange, enddaterange);
 	}
 	
@@ -55,7 +55,7 @@ public class TaskServiceImpl implements TaskService {
 	}
 
 	@Override
-	public boolean endAllTasksWhichHaveEndingDateBetweenDates(Date begindaterange, Date enddaterange) {
+	public boolean endAllTasksWithEndingDateBetweenDates(Date begindaterange, Date enddaterange) {
 		return endTasks(taskDao.findAllByIsEndedFalseAndEndingDateBetween(begindaterange, enddaterange));
 	}
 }
